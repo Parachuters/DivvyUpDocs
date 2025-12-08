@@ -86,18 +86,15 @@ Ensure you have the following installed:
 
 ## 3. Running the Project
 
-We use [concurrently](https://www.npmjs.com/package/concurrently) to run both the backend and mobile projects simultaneously.
+Open 2 different terminals, naviagate to `./backend` and `./mobile` respectively.
 
-```bash
-npm run dev
-```
+*   **Backend**: Located in `./backend`.
+    *   `npm run dev`: Run only the backend. (Usually on localhost:3000)
+    *   Check the `health` path to check for valid connection.
+*   **Mobile**: Located in `./mobile`.
+    *   `npm run dev`: Run only the mobile app.
+    *   Follow the 
 
-This command will:
-1.  Start the **Backend** server (usually on http://localhost:3000).
-2.  Start the **Expo** development server.
-
-> [!NOTE]
-> If you encounter `ECONNREFUSED` on the backend, ensure your Docker container for Postgres is running: `docker ps`.
 
 ## 4. Workspaces
 
