@@ -1,0 +1,23 @@
+{
+    "baseUrl": "DivvyUp",
+    "title": "DivvyUp Documentation",
+    "heading": "DivvyUp",
+    "theme": "default",
+    "pages": [
+        {
+            "src": "index.md",
+            "title": "Home"
+        },
+        {
+            "src": "developer_guide.md",
+            "title": "Developer Guide"
+        },
+        {
+            "src": "product_spec.md",
+            "title": "Product Spec"
+        }
+    ],
+    "deploy": {
+        "message": "Site Update."
+    }
+}
