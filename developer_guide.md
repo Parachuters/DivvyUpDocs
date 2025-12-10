@@ -90,10 +90,11 @@ Open 2 different terminals, naviagate to `./backend` and `./mobile` respectively
 
 *   **Backend**: Located in `./backend`.
     *   `npm run dev`: Run only the backend. (Usually on localhost:3000)
-    *   Check the `health` path to check for valid connection.
+    *   Ensure Docker Desktop is open and run your container
+    *   Check the `\health` path to check for valid connection.
 *   **Mobile**: Located in `./mobile`.
-    *   `npm run dev`: Run only the mobile app.
-    *   Follow the 
+    *   `npx expo start`: Run only the mobile app.
+    *   If you get TypeError, run `npx expo start -c` then `npx expo start`.
 
 
 ## 4. Workspaces
@@ -131,6 +132,24 @@ We follow the standard **Forking Workflow**.
 
 5.  **Create a Pull Request**:
     Go to the [original repository](https://github.com/Parachuters/DivvyUp/) and create a PR from your fork's branch.
+
+## 6. Database viewing
+
+1.  **Find your container name or ID**
+    `docker ps`
+
+2.  **Connect using psql**
+    `docker exec -it <container_name> psql -U <username> -d <database_name>`
+
+    If you followed my setup, it should be
+
+    `docker exec -it divvyup-db psql -U divvyup `
+
+3.  **Once connected use `\l` to list databases, `\dt` to list all tables in current database**
+
+4.  **Run your desired SQL query!**
+
+
 
 ---
 Happy Coding!
