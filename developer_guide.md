@@ -26,8 +26,7 @@ DivvyUp is a monorepo managed by npm workspaces, consisting of two main packages
 | Component | Technology | Description |
 | :--- | :--- | :--- |
 | **Mobile** | [Expo](https://expo.dev/) | React Native framework with managed workflow. |
-| | [Expo Router](https://docs.expo.dev/router/introduction/) | File-based routing for the mobile app. |
-| | [React Native Paper](https://callstack.github.io/react-native-paper/) | UI Component library (if used, else custom). |
+| | [React Navigation](https://reactnavigation.org/docs/getting-started/) | File-based routing for the mobile app. |
 | **Backend** | [Node.js](https://nodejs.org/) | Runtime environment. |
 | | [Express](https://expressjs.com/) | Web framework for the API. |
 | | [Knex.js](https://knexjs.org/) | SQL Query Builder and Migration tool. |
@@ -38,7 +37,7 @@ DivvyUp is a monorepo managed by npm workspaces, consisting of two main packages
 ### 1.2 Architecture Diagram
 
 <div class="mermaid">
-graph TD
+```graph TD
     User[User Mobile Device] -->|API Requests| API[Backend API (Express)]
     API -->|Query| DB[(PostgreSQL)]
     User -->|Auth| Firebase[Firebase Auth]
@@ -59,22 +58,22 @@ Ensure you have the following installed:
 
 ### 2.2 Project Setup
 
-1.  **Fork the repository**:
-    Go to `https://github.com/Parachuters/DivvyUp/` and fork it to your own GitHub account.
+1.  **Clone the repository**:
+    Go to `https://github.com/Parachuters/DivvyUp/` and clone the repository locally.
 
-2.  **Clone your fork**:
     ```bash
-    git clone https://github.com/YOUR_USERNAME/DivvyUp.git
+    git clone https://github.com/Parachuters/DivvyUp.git
     cd DivvyUp
     ```
 
-3.  **Add Upstream Remote**:
-    Connect your local repository to the original repository to sync changes.
+2.  **Set your Git identity (if needed)**:
+    Ensure your commits are associated with your account.
     ```bash
-    git remote add upstream https://github.com/Parachuters/DivvyUp/
+    git config --global user.name "Your Name"
+    git config --global user.email "you@example.com"
     ```
 
-4.  **Install dependencies**:
+3.  **Install dependencies**:
     We use npm workspaces, so running `npm install` in the root installs dependencies for both backend and mobile.
     ```bash
     npm install
@@ -86,12 +85,12 @@ Ensure you have the following installed:
 
 ## 3. Running the Project
 
-Open 2 different terminals, naviagate to `./backend` and `./mobile` respectively.
+Open 2 different terminals, navigate to `./backend` and `./mobile` respectively.
 
 *   **Backend**: Located in `./backend`.
     *   `npm run dev`: Run only the backend. (Usually on localhost:3000)
-    *   Ensure Docker Desktop is open and run your container
-    *   Check the `\health` path to check for valid connection.
+    *   Ensure Docker Desktop is running and your Postgres container is up.
+    *   Check the `/health` path to verify a valid connection.
 *   **Mobile**: Located in `./mobile`.
     *   `npx expo start`: Run only the mobile app.
     *   If you get TypeError, run `npx expo start -c` then `npx expo start`.
@@ -105,15 +104,16 @@ Open 2 different terminals, naviagate to `./backend` and `./mobile` respectively
 *   **Mobile**: Located in `./mobile`.
     *   `npm run dev:mobile`: Run only the mobile app.
 
+
 ## 5. Contribution Workflow
 
-We follow the standard **Forking Workflow**.
+We follow a **Branching Workflow** where contributors create feature branches against the main repository and open pull requests from those branches.
 
-1.  **Sync with Upstream**:
-    Always start by making sure your local main is up to date.
+1.  **Sync with `main`**:
+    Always start by making sure your local `main` is up to date.
     ```bash
     git checkout main
-    git pull upstream main
+    git pull origin main
     ```
 
 2.  **Create a Branch**:
@@ -125,13 +125,15 @@ We follow the standard **Forking Workflow**.
 3.  **Make Changes & Commit**:
     Write clean, documented code and commit your changes.
 
-4.  **Push to your fork**:
+4.  **Push the branch**:
     ```bash
     git push origin feat/your-feature-name
     ```
 
 5.  **Create a Pull Request**:
-    Go to the [original repository](https://github.com/Parachuters/DivvyUp/) and create a PR from your fork's branch.
+    Go to the [GitHub repository](https://github.com/Parachuters/DivvyUp/) and create a PR from your branch into `main`. Add a clear description, link to any related issues, and request reviewers.
+
+Note: If you do not have push permissions to the main repository, you may still fork and submit PRs from your fork. The branching workflow assumes you have permission to push branches to the repository.
 
 ## 6. Database viewing
 
