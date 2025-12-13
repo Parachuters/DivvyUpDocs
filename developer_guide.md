@@ -13,6 +13,7 @@ Welcome to the DivvyUp developer guide! This document provides an overview of th
 *   [3. Running the Project](#3-running-the-project)
 *   [4. Workspaces](#4-workspaces)
 *   [5. Contribution Workflow](#5-contribution-workflow)
+*   [6. Database viewing](#6-database-viewing)
 
 ## 1. Architecture Overview
 
